@@ -5,7 +5,9 @@ const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
 
 describe('index.html', () => {
   beforeEach(() => {
-    document.documentElement.innerHTML = html;
+    document.open();
+    document.write(html);
+    document.close();
   });
 
   test('has correct page title', () => {
