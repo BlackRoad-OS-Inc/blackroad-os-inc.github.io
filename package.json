@@ -1,6 +1,7 @@
 {
   "name": "blackroad-os-inc.github.io",
   "version": "1.0.0",
+  "private": true,
   "description": "Official GitHub Pages for [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc).",
   "scripts": {
     "test": "jest"
