@@ -1,0 +1,17 @@
+{
+  "name": "BlackRoad OS, Inc.",
+  "short_name": "BlackRoad OS",
+  "description": "The corporate home of BlackRoad OS — a self-hosted AI platform powering 30,000 agents across Pi fleets, cloud, and edge.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FF1D6C",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
