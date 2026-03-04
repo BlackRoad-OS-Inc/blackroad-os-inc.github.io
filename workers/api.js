@@ -78,14 +78,10 @@ async function handleStats(env, ctx) {
       headers["Authorization"] = `Bearer ${env.GITHUB_TOKEN}`;
     }
 
-    // Parallel fetch — longer tasks benefit from concurrent API calls
-    const [orgResp, reposResp] = await Promise.all([
-      fetch(`https://api.github.com/orgs/${GITHUB_ORG}`, { headers }),
-      fetch(
-        `https://api.github.com/orgs/${GITHUB_ORG}/repos?per_page=1&type=public`,
-        { headers }
-      ),
-    ]);
+    // Fetch organisation details from GitHub
+    const orgResp = await fetch(`https://api.github.com/orgs/${GITHUB_ORG}`, {
+      headers,
+    });
 
     if (!orgResp.ok) {
       const body = await orgResp.text();
