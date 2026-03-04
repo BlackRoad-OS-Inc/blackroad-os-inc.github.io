@@ -1,0 +1,43 @@
+name: Deploy Cloudflare Worker
+
+# Deploys workers/api.js to Cloudflare Workers whenever the worker source
+# or configuration changes on main.  Also supports manual dispatch.
+#
+# Required repository secrets:
+#   CF_API_TOKEN  — Cloudflare API token with Workers:Edit permission
+#   CF_ACCOUNT_ID — Your Cloudflare account ID
+#
+# Optional secret for higher GitHub API rate limits inside the worker:
+#   GITHUB_TOKEN  — fine-grained PAT (read-only org metadata)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "workers/**"
+      - "wrangler.toml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-worker:
+    name: Deploy to Cloudflare Workers
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f  # v6.3.0
+        with:
+          node-version: "20"
+
+      - name: Deploy Worker via Wrangler
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65  # v3.14.1
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          wranglerVersion: "3"

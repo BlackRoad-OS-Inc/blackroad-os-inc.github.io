@@ -1,0 +1,21 @@
+name = "blackroad-os-api"
+main = "workers/api.js"
+compatibility_date = "2024-11-01"
+
+# Deploy to Cloudflare Workers (free tier by default)
+workers_dev = true
+
+# Production route — uncomment and configure once your domain is on Cloudflare:
+# [[routes]]
+# pattern = "blackroad-os-inc.github.io/api/*"
+# zone_name = "blackroad-os-inc.github.io"
+
+# Optional: KV namespace for caching GitHub API responses.
+# Create with:  wrangler kv namespace create CACHE
+# Then set `id` to the namespace ID printed by that command.
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id     = "YOUR_KV_NAMESPACE_ID_HERE"
+
+# Secrets — set with `wrangler secret put <NAME>` or via the dashboard:
+#   GITHUB_TOKEN — fine-grained PAT (read-only org metadata) for higher rate limits
