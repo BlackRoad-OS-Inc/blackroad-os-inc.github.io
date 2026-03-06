@@ -1,0 +1,16 @@
+{
+  "name": "blackroad-os-inc-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Corporate GitHub Pages site for BlackRoad OS, Inc.",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

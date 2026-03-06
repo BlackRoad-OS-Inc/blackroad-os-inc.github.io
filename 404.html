@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — BlackRoad OS, Inc.</title>
+  <meta name="description" content="Page not found — BlackRoad OS, Inc.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .error-code {
+      font-size: clamp(80px, 20vw, 200px);
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffffff 0%, #FF1D6C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .error-msg {
+      font-size: 20px;
+      color: rgba(255,255,255,0.6);
+      margin: 16px 0 40px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: #FF1D6C;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 30px #FF1D6C50;
+    }
+    .back-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px #FF1D6C70;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-code">404</div>
+  <p class="error-msg">This page doesn't exist.</p>
+  <a href="/" class="back-link">Back to Home</a>
+</body>
+</html>

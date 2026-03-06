@@ -5,9 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BlackRoad OS, Inc. — Your AI. Your Hardware. Your Rules.</title>
   <meta name="description" content="The corporate home of BlackRoad OS — a self-hosted AI platform powering 30,000 agents across Pi fleets, cloud, and edge.">
-  <meta property="og:title" content="BlackRoad OS, Inc.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://blackroad-os-inc.github.io/">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BlackRoad OS, Inc. — Your AI. Your Hardware. Your Rules.">
   <meta property="og:description" content="The corporate home of BlackRoad OS — a self-hosted AI platform powering 30,000 agents across Pi fleets, cloud, and edge.">
-  <meta property="og:url" content="https://github.com/BlackRoad-OS-Inc">
+  <meta property="og:url" content="https://blackroad-os-inc.github.io/">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BlackRoad OS, Inc.">
+  <meta name="twitter:description" content="A self-hosted AI platform powering 30,000 agents across Pi fleets, cloud, and edge.">
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BlackRoad OS, Inc.",
+    "url": "https://blackroad-os-inc.github.io/",
+    "description": "A self-hosted AI platform powering 30,000 agents across Pi fleets, cloud, and edge.",
+    "sameAs": ["https://github.com/BlackRoad-OS-Inc"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -311,15 +332,105 @@
       50% { transform: rotate(45deg) translateY(6px); }
     }
 
+    /* ── SKIP NAV ─────────────────────────────────────── */
+    .skip-nav {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      padding: 12px 24px;
+      background: #FF1D6C;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 0 0 8px 8px;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-nav:focus {
+      top: 0;
+    }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-brand span { color: #FF1D6C; }
+    .nav-link {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link:focus { color: #FF1D6C; }
+
+    /* ── FEATURES ─────────────────────────────────────── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 2rem;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover {
+      border-color: #FF1D6C40;
+    }
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
     @media (max-width: 600px) {
       .stats { flex-direction: column; }
       .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .nav { padding: 12px 16px; }
     }
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-nav">Skip to main content</a>
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="/" class="nav-brand"><span>BlackRoad OS</span>, Inc.</a>
+    <a href="https://github.com/BlackRoad-OS-Inc" class="nav-link" aria-label="View on GitHub">GitHub</a>
+  </nav>
 
-  <section class="hero">
+  <main id="main">
+  <section class="hero" aria-label="Hero">
     <div class="grid-bg"></div>
     <div class="hero-content">
       <div class="org-badge">
@@ -352,7 +463,30 @@
     </div>
   </section>
 
-  <div class="stats">
+  <section class="features" aria-label="Features">
+    <div class="feature-card">
+      <div class="feature-icon" aria-hidden="true">🤖</div>
+      <div class="feature-title">30K AI Agents</div>
+      <div class="feature-desc">Orchestrate thousands of autonomous agents across distributed hardware with zero cloud dependency.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" aria-hidden="true">🔒</div>
+      <div class="feature-title">Self-Hosted</div>
+      <div class="feature-desc">Your data never leaves your hardware. Full sovereignty over models, inference, and storage.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" aria-hidden="true">⚡</div>
+      <div class="feature-title">Edge-Native</div>
+      <div class="feature-desc">Run on Pi fleets, edge clusters, or cloud — same platform, same API, anywhere.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon" aria-hidden="true">💰</div>
+      <div class="feature-title">$0 AI Cost</div>
+      <div class="feature-desc">Eliminate per-token API fees. Own your inference stack and scale without billing surprises.</div>
+    </div>
+  </section>
+
+  <div class="stats" aria-label="Key metrics">
     <div class="stat">
       <div class="stat-value">30K</div>
       <div class="stat-label">AI Agents</div>
@@ -370,6 +504,7 @@
       <div class="stat-label">AI Cost Target</div>
     </div>
   </div>
+  </main>
 
   <footer>
     <div class="footer-logo">
