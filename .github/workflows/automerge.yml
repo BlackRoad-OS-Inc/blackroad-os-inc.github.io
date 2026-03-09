@@ -1,0 +1,29 @@
+name: Auto-merge
+
+# Auto-merges PRs that carry the `automerge` label once all required
+# status checks pass. Uses squash-merge with the PR title as commit message.
+
+on:
+  pull_request:
+    types: [opened, synchronize, labeled, reopened]
+  check_suite:
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    name: Auto-merge approved PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-merge PRs labelled "automerge"
+        uses: pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67  # v0.16.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "automerge"
+          MERGE_METHOD: squash
+          MERGE_COMMIT_MESSAGE: pull-request-title
+          UPDATE_LABELS: ""
+          UPDATE_METHOD: rebase
